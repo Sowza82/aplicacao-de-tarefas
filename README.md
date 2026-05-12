@@ -1,8 +1,38 @@
-# TaskFlow — Aplicação de Tarefas
+<h1 align="center">TaskFlow</h1>
 
-Aplicação moderna de gerenciamento de tarefas desenvolvida com React, Context API e React Router DOM como parte do **Desafio 2 da Trilha React — DEVstart**.
+<p align="center">
+  Aplicação moderna de gerenciamento de tarefas desenvolvida com React.
+</p>
 
-## ✨ Funcionalidades
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react" />
+  <img src="https://img.shields.io/badge/Status-Concluído-success" />
+  <img src="https://img.shields.io/badge/Deploy-Netlify-00C7B7?logo=netlify" />
+  <img src="https://img.shields.io/badge/License-MIT-purple" />
+</p>
+
+---
+
+# 📋 Sobre o Projeto
+
+TaskFlow é uma aplicação moderna de gerenciamento de tarefas desenvolvida com React, Context API e React Router DOM como parte do **Projeto de Certificação da Trilha React — DEVstart**.
+
+A aplicação foi criada com foco na prática de conceitos fundamentais e avançados do ecossistema React, simulando o funcionamento de aplicações reais de produtividade e gerenciamento de tarefas.
+
+O projeto permite criar, visualizar, editar, concluir e excluir tarefas de forma dinâmica, utilizando gerenciamento global de estado com Context API, navegação entre páginas com React Router DOM e persistência de dados via `localStorage`.
+
+Além das funcionalidades CRUD completas, o TaskFlow também prioriza:
+
+- Interface moderna e responsiva
+- Componentização reutilizável
+- Organização escalável de código
+- Experiência do usuário
+- Persistência entre sessões
+- Estrutura baseada em boas práticas de Front-End moderno
+
+---
+
+# ✨ Funcionalidades
 
 - ✅ **Criar** tarefas com título, descrição, prioridade e categoria
 - 📋 **Listar** tarefas com filtros:
@@ -13,86 +43,120 @@ Aplicação moderna de gerenciamento de tarefas desenvolvida com React, Context 
   - Mais recentes
   - Prioridade
   - Ordem alfabética
-- ✏️ **Editar** qualquer tarefa existente
+- ✏️ **Editar** tarefas existentes
 - 🗑️ **Excluir** tarefas com animação de saída
 - ☑️ **Marcar como concluída** diretamente na lista
-- 💾 **Persistência** via `localStorage` (dados mantidos entre sessões)
+- 💾 **Persistência de dados** com `localStorage`
 - 📱 **Interface responsiva** para desktop e mobile
 - 🎨 **UI moderna** com tema dark/neon e animações suaves
 
-## 🛠️ Tecnologias
+---
 
-- **React 18** com hooks (`useState`, `useEffect`, `useContext`)
-- **React Router DOM v6** — rotas `/`, `/add-task`, `/edit-task/:id`
-- **Context API** — gerenciamento global das tarefas via `TaskContext`
-- **localStorage** — persistência entre sessões
+# 🛠️ Tecnologias Utilizadas
+
+- **React 18**
+- **React Router DOM v6**
+- **Context API**
 - **JavaScript**
-- **CSS3** com variáveis customizadas e responsividade
+- **CSS3**
+- **localStorage**
+- **React Hooks**
+  - `useState`
+  - `useEffect`
+  - `useContext`
 
-## 📁 Estrutura
+---
+
+# 📁 Estrutura do Projeto
 
 ```txt
 src/
 ├── context/
-│   └── TaskContext.js      # Context + Provider + lógica CRUD
+│   └── TaskContext.js
+│
 ├── components/
-│   ├── Navbar.js / .css    # Barra de navegação com estatísticas
-│   ├── TaskCard.js / .css  # Card individual de tarefa
-│   └── TaskForm.js / .css  # Formulário reutilizável (criar/editar)
+│   ├── Navbar.js
+│   ├── Navbar.css
+│   ├── TaskCard.js
+│   ├── TaskCard.css
+│   ├── TaskForm.js
+│   └── TaskForm.css
+│
 ├── pages/
-│   ├── Home.js / Home.css  # Página principal com lista e filtros
-│   ├── AddTask.js          # Página para criar tarefa
-│   ├── EditTask.js         # Página para editar tarefa
-│   └── FormPage.css        # Estilos compartilhados das páginas de formulário
-├── App.js                  # Rotas e providers
-├── index.js                # Entry point
-└── index.css               # Estilos globais + variáveis CSS
+│   ├── Home.js
+│   ├── Home.css
+│   ├── AddTask.js
+│   ├── EditTask.js
+│   └── FormPage.css
+│
+├── App.js
+├── index.js
+└── index.css
 ```
 
-## 📸 Preview
+---
 
-```
-![Preview da aplicação](./assets/imagem.png)
+# 📸 Preview
 
-```
+<p align="center">
+  <img
+    src="./src/assets/imagem.png"
+    alt="Preview da aplicação TaskFlow"
+    width="85%"
+  />
+</p>
 
-## 🚀 Como executar
+---
+
+# 🚀 Como Executar o Projeto
+
+## Clone o repositório
 
 ```bash
-# Clone o repositório
 git clone https://github.com/Sowza82/aplicacao-de-tarefas.git
+```
 
-# Entre na pasta do projeto
+## Acesse a pasta do projeto
+
+```bash
 cd aplicacao-de-tarefas
+```
 
-# Instale as dependências
+## Instale as dependências
+
+```bash
 npm install
+```
 
-# Inicie o servidor de desenvolvimento
+## Execute o projeto
+
+```bash
 npm start
 ```
 
-Acesse em:
+A aplicação estará disponível em:
 
 ```txt
 http://localhost:3000
 ```
 
-## 📦 Build para produção
+---
+
+# 📦 Build para Produção
 
 ```bash
 npm run build
 ```
 
-## 🌐 Deploy
+---
 
-Deploy em produção via Netlify:
+# 🌐 Deploy
 
-```txt
-https://seu-app.netlify.app
-```
+🔗 <https://taskflow-sowza.netlify.app/>
 
-## 📚 Aprendizados
+---
+
+# 📚 Aprendizados
 
 Durante o desenvolvimento deste projeto foram praticados conceitos importantes do ecossistema React:
 
@@ -107,16 +171,23 @@ Durante o desenvolvimento deste projeto foram praticados conceitos importantes d
 - UX/UI moderna
 - Separação de responsabilidades
 
-## 🎯 Objetivo do Projeto
+---
 
-Este projeto foi desenvolvido com foco em prática de:
+# 🎯 Objetivo do Projeto
 
-- React moderno
+Este projeto foi desenvolvido com foco em:
+
+- Prática de React moderno
 - Arquitetura de componentes
 - Gerenciamento de estado
+- Navegação entre páginas
 - Experiência do usuário
 - Estruturação de aplicações Front-End
+- Boas práticas de desenvolvimento
 
 ---
 
+# 👩‍💻 Desenvolvedora
+
 Desenvolvido por **Tatiane Souza | SowzaTech** 🚀
+

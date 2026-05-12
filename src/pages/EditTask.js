@@ -1,53 +1,95 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+// src/pages/EditTask.js
+
+
+import { useNavigate, useParams } from 'react-router-dom';
+
 import { useTaskContext } from '../context/TaskContext';
+
 import TaskForm from '../components/TaskForm';
+
 import './FormPage.css';
 
-const EditTask = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const { tasks, editTask } = useTaskContext();
+/* =========================
+   COMPONENT
+========================= */
 
-  // Busca diretamente do localStorage para não depender do filtro ativo
-  const allTasks = JSON.parse(localStorage.getItem('taskflow_tasks') || '[]');
-  const task = allTasks.find((t) => t.id === id);
+const EditTask = () => {
+  const { id } = useParams()
+
+  const navigate = useNavigate()
+
+  const { tasks, editTask } = useTaskContext()
+
+  /* =========================
+     FIND TASK
+  ========================= */
+
+  const task = tasks.find(t => t.id === id)
+
+  /* =========================
+     TASK NOT FOUND
+  ========================= */
 
   if (!task) {
     return (
       <main className="form-page">
         <div className="form-container">
-          <p style={{ color: 'var(--text-secondary)', textAlign: 'center' }}>
-            Tarefa não encontrada.{' '}
-            <button
-              style={{ color: 'var(--accent)', background: 'none', border: 'none', cursor: 'pointer', fontSize: '14px' }}
-              onClick={() => navigate('/')}
-            >
-              Voltar
+          <div className="not-found">
+            <h2 className="not-found-title">Tarefa não encontrada</h2>
+
+            <p className="not-found-text">
+              A tarefa pode ter sido removida ou não existe.
+            </p>
+
+            <button className="back-home-btn" onClick={() => navigate('/')}>
+              ← Voltar para início
             </button>
-          </p>
+          </div>
         </div>
       </main>
-    );
+    )
   }
 
-  const handleEdit = (updatedFields) => {
-    editTask({ ...task, ...updatedFields });
-  };
+  /* =========================
+     HANDLE EDIT
+  ========================= */
+
+  const handleEdit = updatedFields => {
+    editTask({
+      ...task,
+      ...updatedFields,
+    })
+  }
+
+  /* =========================
+     RENDER
+  ========================= */
 
   return (
     <main className="form-page">
       <div className="form-container">
+        {/* HEADER */}
+
         <header className="form-header">
           <div className="form-header-icon edit">✎</div>
+
           <h1 className="form-title">Editar Tarefa</h1>
-          <p className="form-subtitle">Faça as alterações necessárias abaixo.</p>
+
+          <p className="form-subtitle">
+            Faça as alterações necessárias abaixo.
+          </p>
         </header>
+
+        {/* FORM */}
+
         <TaskForm
           initialData={{
             title: task.title,
+
             description: task.description || '',
+
             priority: task.priority || 'média',
+
             category: task.category || '',
           }}
           onSubmit={handleEdit}
@@ -55,7 +97,7 @@ const EditTask = () => {
         />
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default EditTask;
+export default EditTask
